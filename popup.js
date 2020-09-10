@@ -1,7 +1,7 @@
 const log = console.log.bind(console),
   id = val => document.getElementById(val),
   ul = id('ul'),
-  gUMbtn = id('gUMbtn'),
+  streamBtn = id('stream-btn'),
   start = id('start'),
   stop = id('stop');
 
@@ -12,3 +12,15 @@ let stream,
   media;
 
 
+  streamBtn.onclick = e => {
+    let mediaOptions = {
+        audio: {
+          tag: 'audio',
+          type: 'audio/webm',
+          ext: '.mp3',
+          gUM: { audio: true }
+        }
+    };
+  
+    media = mediaOptions.audio;
+  }
