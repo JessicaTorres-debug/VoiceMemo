@@ -48,7 +48,17 @@ streamBtn.onclick = e => {
 
 
 start.onclick = e => {
-  start.disabled = true;
+  // start.disabled = true;
+
+  if(start.classList.contains('notRec')){
+		start.classList.remove('notRec');
+		start.classList.add('Rec');
+	}
+	else{
+		start.classList.remove('Rec');
+		start.classList.add('notRec');
+  }
+
   stop.removeAttribute('disabled');
   chunks = [];
   recorder.start();
@@ -56,6 +66,9 @@ start.onclick = e => {
 
 
 stop.onclick = e => {
+  start.classList.remove('Rec');
+  start.classList.add('notRec');
+
   stop.disabled = true;
   recorder.stop();
   start.removeAttribute('disabled');
