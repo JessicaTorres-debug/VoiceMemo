@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Voice Memo</title>
-  </head>
 
-  <body>
-    <script  src="popup.js" charset="utf-8"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Memo</title>
+</head>
+
+<style>
+  body {
+    background-color: blueviolet;
+  }
+</style>
+
+<body>
+  <div id='streamArea'>
+    <button class="btn btn-default" id='stream-btn'>Begin Stream</button>
+  </div>
+  <div id='btns'>
+    <button class="btn btn-default" id='start'>Start</button>
+    <button class="btn btn-default" id='stop'>Stop</button>
+  </div>
+  <div>
+    <ul class="list-unstyled" id='ul'></ul>
+  </div>
+
+  <script src="popup.js" charset="utf-8"></script>
+</body>
+
 </html>
