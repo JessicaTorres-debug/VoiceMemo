@@ -82,3 +82,22 @@ function takeName() {
 
   console.log('value:', inputField.value);
 }
+
+function makeLink(fileName) {
+  let blob = new Blob(chunks, { type: media.type })
+    , url = URL.createObjectURL(blob)
+    , li = document.createElement('li')
+    , mt = document.createElement(media.tag)
+    , hf = document.createElement('a')
+    ;
+  mt.controls = true;
+  mt.src = url;
+  hf.href = url;
+
+  hf.download = `${fileName}${media.ext}`;
+  hf.innerHTML = `donwload ${hf.download}`;
+
+  li.appendChild(mt);
+  li.appendChild(hf);
+  ul.appendChild(li);
+}
