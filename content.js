@@ -1,1 +1,1 @@
-alert('Voice Memo')
+console.log('open', 'open');
