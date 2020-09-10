@@ -60,3 +60,25 @@ stop.onclick = e => {
   recorder.stop();
   start.removeAttribute('disabled');
 }
+
+
+
+function takeName() {
+
+  const input = document.createElement('input')
+  input.setAttribute('id', `field`);
+
+  const submit = document.createElement('button')
+  submit.setAttribute('id', `save`)
+  submit.addEventListener('click', function () {
+    console.log('value:', inputField.value);
+    makeLink(inputField.value);
+  });
+
+  document.body.appendChild(input);
+  document.body.appendChild(submit);
+
+  let inputField = id(`field`);
+
+  console.log('value:', inputField.value);
+}
