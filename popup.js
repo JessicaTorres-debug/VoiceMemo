@@ -1,15 +1,15 @@
-const log = console.log.bind(console),
-  id = val => document.getElementById(val),
-  ul = id('ul'),
-  container = id('container'),
-  start = id('start'),
-  stop = id('stop');
+const log = console.log.bind(console)
+  , id = val => document.getElementById(val)
+  , ul = id('ul')
+  , container = id('container')
+  , start = id('start')
+  , stop = id('stop');
 
-let stream,
-  recorder,
-  counter = 1,
-  chunks,
-  media;
+let stream
+  , recorder
+  , counter = 1
+  , chunks
+  , media;
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 start.onclick = e => {
-  // start.disabled = true;
+  start.disabled = true;
 
   if(start.classList.contains('notRec')){
 		start.classList.remove('notRec');
@@ -103,14 +103,15 @@ function makeLink(fileName) {
     , url = URL.createObjectURL(blob)
     , li = document.createElement('li')
     , mt = document.createElement(media.tag)
-    , hf = document.createElement('a')
-    ;
+    , hf = document.createElement('a');
+
   mt.controls = true;
   mt.src = url;
   hf.href = url;
 
+  hf.setAttribute('class', 'download');
   hf.download = `${fileName}${media.ext}`;
-  hf.innerHTML = `donwload ${hf.download}`;
+  hf.innerHTML = `download ${hf.download}`;
 
   li.appendChild(mt);
   li.appendChild(hf);
