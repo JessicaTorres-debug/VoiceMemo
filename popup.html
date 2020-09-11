@@ -17,6 +17,7 @@
     display: block;
     justify-content: center;
   }
+
   #container {
     display: flex;
     justify-content: center;
@@ -28,43 +29,105 @@
     border-radius: 25%;
   }
 
+  .switch-field {
+    display: flex;
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+
+  .switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+  }
+
+  .switch-field label {
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: bolder;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .switch-field label:hover {
+    cursor: pointer;
+  }
+
+  .switch-field input:checked+label {
+    background-color: #4dd300;
+    box-shadow: none;
+  }
+
+  .switch-field label:first-of-type {
+    border-radius: 4px 0 0 4px;
+  }
+
+  .switch-field label:last-of-type {
+    border-radius: 0 4px 4px 0;
+  }
+
+
   #start {
-	  width: 35px;
-	  height: 35px;
-	  font-size: 0;
-	  background-color: red;
-	  border: 0;
-	  border-radius: 35px;
-	  margin: 18px;
-	  outline: none;
+    width: 35px;
+    height: 35px;
+    font-size: 0;
+    background-color: red;
+    border: 0;
+    border-radius: 35px;
+    margin: 18px;
+    outline: none;
   }
 
-  .notRec{
-	  background-color: rgb(143, 5, 5);
+  .notRec {
+    background-color: rgb(143, 5, 5);
   }
 
-  .Rec{
-	  animation-name: pulse;
-	  animation-duration: 1.5s;
-	  animation-iteration-count: infinite;
-	  animation-timing-function: linear;
+  .Rec {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
   }
 
-  @keyframes pulse{
-	  0%{
-		  box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
-	  }
-	  65%{
-		  box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
-	  }
-	  90%{
-		  box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
-	  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0px 0px 5px 0px rgba(173, 0, 0, .3);
+    }
+
+    65% {
+      box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, .3);
+    }
+
+    90% {
+      box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
+    }
+  }
+
+  .download {
+    color: cornsilk;
   }
 </style>
 
 <body>
   <div id='btns'>
+    <div class="switch-field">
+      <input type="radio" id="mp3" name="switch-two" value="mp3" checked/>
+      <label for="mp3">mp3</label>
+      <input type="radio" id="wav" name="switch-two" value="wav" />
+      <label for="wav">wav</label>
+      <input type="radio" id="ogg" name="switch-two" value="ogg" />
+      <label for="ogg">ogg</label>
+    </div>
+
     <button class="btn btn-default notRec" id='start'>Start</button>
     <button class="btn btn-default" id='stop'>Stop</button>
   </div>
