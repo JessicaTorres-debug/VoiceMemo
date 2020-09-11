@@ -1,7 +1,7 @@
 const log = console.log.bind(console),
   id = val => document.getElementById(val),
   ul = id('ul'),
-  streamBtn = id('stream-btn'),
+  container = id('container'),
   start = id('start'),
   stop = id('stop');
 
@@ -12,7 +12,7 @@ let stream,
   media;
 
 
-streamBtn.onclick = e => {
+document.addEventListener('DOMContentLoaded', function() {
   let mediaOptions = {
     audio: {
       tag: 'audio',
@@ -44,7 +44,7 @@ streamBtn.onclick = e => {
       log('Media successfully received');
     })
     .catch(log);
-}
+})
 
 
 start.onclick = e => {
@@ -84,12 +84,14 @@ function takeName() {
   const submit = document.createElement('button')
   submit.setAttribute('id', `save`)
   submit.addEventListener('click', function () {
-    console.log('value:', inputField.value);
+
     makeLink(inputField.value);
+    input.parentNode.removeChild(input);
+    submit.parentNode.removeChild(submit);
   });
 
-  document.body.appendChild(input);
-  document.body.appendChild(submit);
+  container.appendChild(input);
+  container.appendChild(submit);
 
   let inputField = id(`field`);
 
