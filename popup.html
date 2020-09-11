@@ -11,16 +11,16 @@
 
 <style>
   body {
-    background-color: #004aad;
+    background-color: #e5dac5;
     /* margin: auto; */
 
-    display: flex;
+    display: block;
     justify-content: center;
   }
-  .container {
+  #container {
     display: flex;
     justify-content: center;
-    background-color: #e5dac5;
+    background-color: #004aad;
     width: 80%;
     height: 80%;
     /* min-width: 65vh;
@@ -64,14 +64,11 @@
 </style>
 
 <body>
-  <div class="container">
-    <div id='streamArea'>
-      <button class="btn btn-default" id='stream-btn'>Begin Stream</button>
-    </div>
-    <div id='btns'>
-      <button class="btn btn-default notRec" id='start'>Start</button>
-      <button class="btn btn-default" id='stop'>Stop</button>
-    </div>
+  <div id='btns'>
+    <button class="btn btn-default notRec" id='start'>Start</button>
+    <button class="btn btn-default" id='stop'>Stop</button>
+  </div>
+  <div id="container">
     <div>
       <ul class="list-unstyled" id='ul'></ul>
     </div>
