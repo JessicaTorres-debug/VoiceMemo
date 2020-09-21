@@ -1,7 +1,7 @@
 const log = console.log.bind(console)
   , id = val => document.getElementById(val)
   , className = val => document.getElementsByClassName(val)
-  , ul = id('ul')
+  , ul = id('downloads')
   , container = id('container')
   , types = className('fmt-option')
   , start = id('start')
@@ -103,12 +103,15 @@ function takeName() {
     submit.parentNode.removeChild(submit);
   });
 
-  container.appendChild(input);
-  container.appendChild(submit);
+  if (ul.getElementsByTagName('li').length >= 1) {
+    ul.appendChild(input);
+    ul.appendChild(submit);
+  } else {
+    container.appendChild(input);
+    container.appendChild(submit);
+  }
 
   let inputField = id(`field`);
-
-  console.log('value:', inputField.value);
 }
 
 function makeLink(fileName) {
