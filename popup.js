@@ -1,7 +1,9 @@
 const log = console.log.bind(console)
   , id = val => document.getElementById(val)
+  , className = val => document.getElementsByClassName(val)
   , ul = id('ul')
   , container = id('container')
+  , types = className('fmt-option')
   , start = id('start')
   , stop = id('stop');
 
@@ -12,11 +14,11 @@ let stream
   , media;
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   let mediaOptions = {
     audio: {
       tag: 'audio',
-      type: 'audio/webm',
+      type: 'audio/mpeg-3',
       ext: '.mp3',
       gUM: { audio: true }
     }
@@ -50,13 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
 start.onclick = e => {
   start.disabled = true;
 
-  if(start.classList.contains('notRec')){
-		start.classList.remove('notRec');
-		start.classList.add('Rec');
-	}
-	else{
-		start.classList.remove('Rec');
-		start.classList.add('notRec');
+  if (start.classList.contains('notRec')) {
+    start.classList.remove('notRec');
+    start.classList.add('Rec');
+  }
+  else {
+    start.classList.remove('Rec');
+    start.classList.add('notRec');
   }
 
   stop.removeAttribute('disabled');
@@ -84,7 +86,18 @@ function takeName() {
   const submit = document.createElement('button')
   submit.setAttribute('id', `save`)
   submit.addEventListener('click', function () {
-
+    // if () {
+    //   if () {
+    //     media.type = 'audio/mpeg';
+    //     media.ext = '.mp3';
+    //   } else if () {
+    //     media.type = '';
+    //     media.ext = '.wav';
+    //   } else if () {
+    //     media.type = 'audio/ogg';
+    //     media.ext = '.ogg';
+    //   }
+    // }
     makeLink(inputField.value);
     input.parentNode.removeChild(input);
     submit.parentNode.removeChild(submit);
@@ -111,7 +124,7 @@ function makeLink(fileName) {
 
   hf.setAttribute('class', 'download');
   hf.download = `${fileName}${media.ext}`;
-  hf.innerHTML = `download ${hf.download}`;
+  hf.innerHTML = `<span><i class="material-icons md-48 toggleBtn get_app">get_app</i> ${hf.download}</span>`;
 
   li.appendChild(mt);
   li.appendChild(hf);
