@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Voice Memo</title>
 </head>
 
@@ -77,12 +78,12 @@
 
 
   #start {
-    width: 35px;
-    height: 35px;
+    width: 65px;
+    height: 65px;
     font-size: 0;
     background-color: red;
     border: 0;
-    border-radius: 35px;
+    border-radius: 65px;
     margin: 18px;
     outline: none;
   }
@@ -116,19 +117,25 @@
     list-style-type: none;
   }
 
+  .material-icons.md-48 {
+    font-size: 68px;
+  }
+
   .download {
     color: cornsilk;
+    text-decoration: none;
+    font-size: 25px;
   }
 </style>
 
 <body>
   <div id='btns'>
     <div class="switch-field">
-      <input type="radio" id="mp3" name="switch-two" value="mp3" checked/>
+      <input class="fmt-option" type="radio" id="mp3" name="switch-two" value="mp3" checked/>
       <label for="mp3">mp3</label>
-      <input type="radio" id="wav" name="switch-two" value="wav" />
+      <input class="fmt-option" type="radio" id="wav" name="switch-two" value="wav" />
       <label for="wav">wav</label>
-      <input type="radio" id="ogg" name="switch-two" value="ogg" />
+      <input class="fmt-option" type="radio" id="ogg" name="switch-two" value="ogg" />
       <label for="ogg">ogg</label>
     </div>
 
