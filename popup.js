@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(_stream => {
       stream = _stream;
 
-      id('btns').style.display = 'inherit';
+      // id('btns').style.display = 'inherit';
       start.removeAttribute('disabled');
 
       recorder = new MediaRecorder(stream);
@@ -127,7 +127,7 @@ function makeLink(fileName) {
 
   hf.setAttribute('class', 'download');
   hf.download = `${fileName}${media.ext}`;
-  hf.innerHTML = `<span><i class="material-icons md-48 toggleBtn get_app">get_app</i> ${hf.download}</span>`;
+  hf.innerHTML = `<nobr><i class="material-icons md-48 toggleBtn get_app">get_app</i> ${hf.download}</nobr>`;
 
   li.appendChild(mt);
   li.appendChild(hf);
