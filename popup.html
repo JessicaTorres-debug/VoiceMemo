@@ -13,21 +13,21 @@
 <style>
   body {
     background-color: #e5dac5;
-    /* margin: auto; */
-
     display: block;
     justify-content: center;
   }
 
   #container {
-    display: flex;
+    display: block;
     justify-content: center;
     background-color: #004aad;
-    width: 80%;
+    box-shadow: 0 10px 10px -5px;
+    width: 85%;
     height: 80%;
     /* min-width: 65vh;
     min-height: 70vh; */
-    border-radius: 25%;
+    border-radius: 15%;
+    padding: 20px;
   }
 
   .switch-field {
@@ -78,14 +78,21 @@
 
 
   #start {
+    cursor: pointer;
     width: 65px;
     height: 65px;
     font-size: 0;
     background-color: red;
+    box-shadow: 0 7px 10px -5px;
     border: 0;
     border-radius: 65px;
     margin: 18px;
     outline: none;
+  }
+
+  #start:active {
+    transform: translateY(3px);
+    box-shadow: none;
   }
 
   .notRec {
@@ -113,40 +120,114 @@
     }
   }
 
-  #stop {
+  /* #stop {
+    cursor: pointer;
+    outline: none;
     width: 65px;
     height: 65px;
     background-color: black;
+
+    box-shadow: 0 10px 10px -5px;
+    box-shadow: 3px 1.5px 1px rgb(27, 27, 27);
+    box-shadow: -6px 6px 0 brown;
+  }
+  #stop:active {
+    transform: translateY(3px);
+    box-shadow: none; 
+  } */
+
+  #stop {
+    outline: none;
+    position: relative;
+    margin: 50;
+    float: right;
+    cursor: pointer;
+    display: block;
+    width: 65px;
+    height: 65px;
+    background-color: black;
+    background-image: -webkit-linear-gradient(283deg, rgba(255, 255, 255, 0.1) 50%, transparent 55%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.15), transparent);
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1d283b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 4px 0 0 #25264e, 0 4px 0 1px rgba(0, 0, 0, 0.4), 0 4px 4px 1px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all .2s linear;
+  }
+  #stop:active {
+    background-color: black;
+    top: 4px;
+    box-shadow: 0 0 0 1px #1d283b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 0 #25264e, 0 0 0 1px rgba(0, 0, 0, 0.4), 0 0px 8px 1px rgba(0, 0, 0, 0.5);
+  }
+  #stop:hover {
+    background-color: black;
+    top: -1px;
+    box-shadow: 0 0 0 1px #1d283b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 #25264e, 0 5px 0 1px rgba(0, 0, 0, 0.4), 0 5px 8px 1px rgba(0, 0, 0, 0.5);
+  }
+  #stop:active {
+    background-color: black;
+    top: 4px;
+    box-shadow: 0 0 0 1px #1d283b inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 0 #25264e, 0 0 0 1px rgba(0, 0, 0, 0.4), 0 0px 8px 1px rgba(0, 0, 0, 0.5);
   }
 
   ul {
     list-style-type: none;
   }
 
+  input {
+    outline: none;
+    height: 30%;
+    width: 30%;
+    background-color: yellow;
+  }
+
+  #save {
+    outline: none;
+    width: 50px;
+    height: 30px;
+    background-color: purple;
+  }
+
+  audio {
+    outline: none;
+    width: 45vw;
+    /* height: 25%; */
+    box-shadow: 0 10px 10px -5px;
+    border-radius: 90px;
+  }
+
   .material-icons.md-48 {
+    cursor: pointer;
     font-size: 68px;
+    box-shadow: 5px 3px 4px rgba(0, 0, 0, 0.548);
+    border-radius: 90px;
+    margin-left: 20px;
+  }
+
+  .material-icons.md-48:active {
+    transform: translateY(3px);
+    box-shadow: none;
   }
 
   .download {
     color: cornsilk;
     text-decoration: none;
     font-size: 25px;
+    margin-left: 20px;
   }
 </style>
 
 <body>
   <div id='btns'>
     <div class="switch-field">
-      <input class="fmt-option" type="radio" id="mp3" name="switch-two" value="mp3" checked/>
+      <input class="fmt-option" type="radio" id="mp3" name="switch-two" value="mp3" checked />
       <label for="mp3">mp3</label>
       <input class="fmt-option" type="radio" id="wav" name="switch-two" value="wav" />
       <label for="wav">wav</label>
       <input class="fmt-option" type="radio" id="ogg" name="switch-two" value="ogg" />
       <label for="ogg">ogg</label>
     </div>
-
-    <button class="btn btn-default notRec" id='start'>Start</button>
-    <button class="btn btn-default" id='stop'>Stop</button>
+    <div>
+      <button class="btn btn-default notRec" id='start'>Start</button>
+      <button class="btn btn-default" id='stop'></button>
+    </div>
   </div>
   <div id="container">
     <div>
