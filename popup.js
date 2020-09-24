@@ -85,6 +85,7 @@ function takeName() {
 
   const submit = document.createElement('button')
   submit.setAttribute('id', `save`)
+  submit.innerHTML = `<i class="material-icons md-48 toggleBtn done_outline">done_outline</i>`
   submit.addEventListener('click', function () {
     // if () {
     //   if () {
